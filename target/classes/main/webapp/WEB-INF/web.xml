@@ -11,4 +11,8 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+    <context-param>
+        <param-name>org.jboss.logging.provider</param-name>
+        <param-value>jdk</param-value>
+    </context-param>
 </web-app>
