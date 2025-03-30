@@ -10,7 +10,7 @@ import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.util.List;
 
-@Named("userService")
+@Named
 @ApplicationScoped
 public class UserService {
 

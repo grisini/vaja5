@@ -3,6 +3,7 @@ package com.example.chargingstation.service;
 import com.example.chargingstation.dao.interfaces.ChargingStationDAO;
 import com.example.chargingstation.iterator.*;
 import com.example.chargingstation.vao.ChargingStation;
+import com.example.chargingstation.vao.Provider;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -10,7 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
-@Named("chargingStationService") // Eksplicitno poimenovanje
+@Named
 @ApplicationScoped
 public class ChargingStationService {
 
@@ -26,6 +27,7 @@ public class ChargingStationService {
                 .filter(ChargingStation::isActive)
                 .toList();
     }
+
 
     public List<ChargingStation> getAllChargingStations() {
         return chargingStationDAO.getAllChargingStations();

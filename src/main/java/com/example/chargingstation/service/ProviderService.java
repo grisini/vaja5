@@ -3,11 +3,14 @@ package com.example.chargingstation.service;
 import com.example.chargingstation.dao.ProviderDAOImpl;
 import com.example.chargingstation.vao.ChargingStation;
 import com.example.chargingstation.vao.Provider;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Named;
 
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
-
+@Named
+@ApplicationScoped
 public class ProviderService {
     private final ProviderDAOImpl providerDAO = ProviderDAOImpl.getInstance();
     private final ChargingStationService chargingStationService = new ChargingStationService();

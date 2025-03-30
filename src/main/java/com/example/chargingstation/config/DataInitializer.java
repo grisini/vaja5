@@ -8,10 +8,11 @@ import com.example.chargingstation.vao.User;
 import jakarta.annotation.PostConstruct;
 import jakarta.ejb.Singleton;
 import jakarta.ejb.Startup;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
-@Startup
-@Singleton
+@ApplicationScoped
 public class DataInitializer {
 
     @Inject
@@ -19,7 +20,6 @@ public class DataInitializer {
 
     @Inject
     private UserService userService;
-
     @PostConstruct
     public void init() {
         // Dodajanje testnih polnilnic
