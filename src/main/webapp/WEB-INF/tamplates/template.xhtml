@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+    <title>Polnilne postaje</title>
+    <h:outputStylesheet library="css" name="styles.css"/>
+</h:head>
+<h:body>
+    <div class="menu">
+        <h:form>
+            <h:commandButton value="Domov" action="index?faces-redirect=true" styleClass="menu-button"/>
+            <h:commandButton value="Polnilnice" action="stations?faces-redirect=true" styleClass="menu-button"/>
+            <h:commandButton value="Ponudniki" action="providers?faces-redirect=true" styleClass="menu-button"/>
+            <h:commandButton value="Uporabniki" action="users?faces-redirect=true" styleClass="menu-button"/>
+            <h:commandButton value="Dodaj polnilnico" action="add-station?faces-redirect=true" styleClass="menu-button"/>
+        </h:form>
+    </div>
+
+    <div class="content">
+        <ui:insert name="content"/>
+    </div>
+</h:body>
+</html>
