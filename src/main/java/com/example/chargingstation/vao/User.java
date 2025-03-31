@@ -15,7 +15,7 @@ public class User {
         this.carType = carType;
     }
 
-    // Getters and setters
+
     public String getId() {
         return id;
     }
