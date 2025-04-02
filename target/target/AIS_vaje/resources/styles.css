@@ -1,0 +1,60 @@
+/* Main layout styles */
+.layout-header {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+}
+
+.layout-footer {
+    background-color: #f8f9fa;
+    text-align: center;
+    border-top: 1px solid #dee2e6;
+}
+
+.footer-text {
+    padding: 10px;
+    color: #6c757d;
+}
+
+/* Menubar styles */
+.menubar {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+/* Panel styles */
+.ui-panel {
+    margin-bottom: 20px;
+}
+
+.ui-panel .ui-panel-titlebar {
+    background-color: #3498db;
+    color: white;
+}
+
+/* Button styles */
+.ui-button {
+    margin-right: 5px;
+}
+
+/* DataTable styles */
+.ui-datatable {
+    margin-top: 20px;
+}
+
+.ui-datatable thead th {
+    background-color: #f8f9fa !important;
+}
+
+/* Form styles */
+.ui-panelgrid .ui-grid-row {
+    margin-bottom: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .ui-panelgrid .ui-grid-row > td {
+        display: block;
+        width: 100%;
+    }
+}

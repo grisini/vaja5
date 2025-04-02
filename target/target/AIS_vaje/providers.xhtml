@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<ui:composition template="/WEB-INF/templates/template.xhtml">
+    <ui:define name="content">
+        <h1>Upravljanje ponudnikov</h1>
+
+        <p:messages globalOnly="true" showDetail="true"/>
+
+        <!-- Edit Form -->
+        <p:panel header="Urejanje ponudnika" toggleable="true" toggleSpeed="500"
+                 rendered="#{providerController.editingMode}" style="margin-bottom:20px">
+            <h:form id="editForm">
+                <h:inputHidden id="hiddenId" value="#{providerController.editedProvider.id}"/>
+                <p:panelGrid columns="2" layout="grid">
+                    <p:outputLabel for="editId" value="ID: "/>
+                    <p:outputText id="editId" value="#{providerController.editedProvider.id}"/>
+
+                    <p:outputLabel for="editName" value="Ime: "/>
+                    <p:inputText id="editName" value="#{providerController.editedProvider.name}"
+                                 required="true" requiredMessage="Ime je obvezen podatek"/>
+
+                    <p:commandButton value="Shrani" action="#{providerController.updateProvider}"
+                                     styleClass="ui-button-primary"/>
+                    <p:commandButton value="Prekliči" action="#{providerController.cancelEdit}"
+                                     immediate="true" styleClass="ui-button-secondary"/>
+                </p:panelGrid>
+                <p:message for="editName" display="icon"/>
+            </h:form>
+        </p:panel>
+
+        <!-- Add Form -->
+        <p:panel header="Dodaj novega ponudnika" toggleable="true" toggleSpeed="500"
+                 rendered="#{not providerController.editingMode}" style="margin-bottom:20px">
+            <h:form id="addForm">
+                <p:panelGrid columns="2" layout="grid">
+                    <p:outputLabel for="id" value="ID: "/>
+                    <p:inputText id="id" value="#{providerController.newProvider.id}"
+                                 required="true" requiredMessage="ID je obvezen podatek"/>
+
+                    <p:outputLabel for="name" value="Ime: "/>
+                    <p:inputText id="name" value="#{providerController.newProvider.name}"
+                                 required="true" requiredMessage="Ime je obvezen podatek"/>
+
+                    <p:commandButton value="Dodaj" action="#{providerController.addProvider}"
+                                     styleClass="ui-button-success"/>
+                </p:panelGrid>
+                <p:message for="id" display="icon"/>
+                <p:message for="name" display="icon"/>
+            </h:form>
+        </p:panel>
+
+        <!-- Providers Table -->
+        <h:form id="listForm">
+            <p:dataTable value="#{providerController.allProviders}" var="provider"
+                         paginator="true" rows="10" rowsPerPageTemplate="5,10,15"
+                         style="margin-top:20px">
+                <p:column headerText="ID">
+                    <h:outputText value="#{provider.id}"/>
+                </p:column>
+                <p:column headerText="Ime">
+                    <h:outputText value="#{provider.name}"/>
+                </p:column>
+                <p:column headerText="Št. postaj">
+                    <h:outputText value="#{provider.chargingStations.size()}"/>
+                </p:column>
+                <p:column headerText="Akcije">
+                    <p:commandButton value="Uredi" action="#{providerController.startEdit(provider)}"
+                                     rendered="#{not providerController.editingMode}"
+                                     styleClass="ui-button-warning"/>
+                    <p:commandButton value="Izbriši" action="#{providerController.deleteProvider(provider.id)}"
+                                     rendered="#{not providerController.editingMode}"
+                                     styleClass="ui-button-danger"
+                                     onclick="return confirm('Ali res želite izbrisati tega ponudnika?')"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

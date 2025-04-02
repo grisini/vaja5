@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<ui:composition template="/WEB-INF/templates/template.xhtml">
+    <ui:define name="content">
+        <div class="ui-container">
+            <h1 class="ui-g-12">Dobrodošli v sistemu za upravljanje polnilnih postaj</h1>
+
+            <div class="ui-g">
+                <div class="ui-g-4">
+                    <p:panel header="Aktivne polnilnice" styleClass="ui-panel-primary">
+                        <h1>#{statisticsController.activeStationsCount}</h1>
+                    </p:panel>
+                </div>
+                <div class="ui-g-4">
+                    <p:panel header="Uporabniki" styleClass="ui-panel-success">
+                        <h1>#{statisticsController.usersCount}</h1>
+                    </p:panel>
+                </div>
+                <div class="ui-g-4">
+                    <p:panel header="Ponudniki" styleClass="ui-panel-info">
+                        <h1>#{statisticsController.providersCount}</h1>
+                    </p:panel>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>

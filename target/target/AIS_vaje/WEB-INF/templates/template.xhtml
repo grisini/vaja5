@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+    <title>Polnilne postaje</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <h:outputStylesheet library="css" name="styles.css"/>
+</h:head>
+<h:body>
+    <div class="layout-wrapper">
+        <!-- Header -->
+        <p:menubar styleClass="layout-header">
+            <p:menuitem value="Domov" outcome="index" icon="pi pi-home"/>
+            <p:submenu label="Uporabniki" icon="pi pi-users">
+                <p:menuitem value="Seznam" outcome="users" icon="pi pi-list"/>
+                <p:menuitem value="Dodaj" outcome="users?form=add" icon="pi pi-user-plus"/>
+            </p:submenu>
+            <p:submenu label="Ponudniki" icon="pi pi-briefcase">
+                <p:menuitem value="Seznam" outcome="providers" icon="pi pi-list"/>
+                <p:menuitem value="Dodaj" outcome="providers?form=add" icon="pi pi-plus"/>
+            </p:submenu>
+            <p:submenu label="Postaje" icon="pi pi-map-marker">
+                <p:menuitem value="Seznam" outcome="stations" icon="pi pi-list"/>
+                <p:menuitem value="Dodaj" outcome="stations?form=add" icon="pi pi-plus"/>
+            </p:submenu>
+        </p:menubar>
+
+        <!-- Main Content -->
+        <div class="layout-content">
+            <ui:insert name="content">Default content</ui:insert>
+        </div>
+
+        <!-- Footer -->
+        <div class="layout-footer">
+            Sistem za upravljanje polnilnih postaj © 2023
+        </div>
+    </div>
+</h:body>
+</html>
